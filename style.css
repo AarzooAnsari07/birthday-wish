@@ -1,66 +1,99 @@
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
-    background: linear-gradient(135deg, #ff758c, #ff7eb3);
-    font-family: 'Segoe UI', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
+    background: linear-gradient(135deg, #ffb3c6, #ff5d8f);
+    min-height: 100vh;
+    text-align: center;
+    padding: 20px;
 }
 
-.card {
+.heading {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.book {
+    position: relative;
+    width: 320px;
+    height: 420px;
+    margin: auto;
+    perspective: 2000px;
+}
+
+.page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
     background: white;
-    padding: 20px;
-    border-radius: 20px;
-    text-align: center;
-    width: 90%;
-    max-width: 350px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    border-radius: 12px;
+    transform-origin: left;
+    transition: transform 1s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    cursor: pointer;
+}
+
+.page.cover {
+    z-index: 3;
+}
+
+.page:nth-child(2) {
     z-index: 2;
 }
 
-.card img {
-    width: 180px;
-    height: 180px;
+.page.back {
+    z-index: 1;
+}
+
+.page.flipped {
+    transform: rotateY(-180deg);
+}
+
+.content {
+    padding: 20px;
+    height: 100%;
+}
+
+.cover img {
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid pink;
     margin-bottom: 10px;
+    border: 4px solid pink;
 }
 
-.msg {
-    margin-top: 10px;
-    font-size: 15px;
-    color: #555;
+.content h2 {
+    margin-bottom: 10px;
+    color: #ff2f7d;
 }
 
-.from {
-    margin-top: 10px;
+.content p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.tap {
+    display: block;
+    margin-top: 15px;
+    font-size: 12px;
+    color: gray;
+}
+
+.shayari {
     font-style: italic;
-    color: #777;
+    color: #444;
 }
 
-/* 💖 Floating Hearts */
-.hearts span {
+footer {
     position: absolute;
-    color: rgba(255,255,255,0.7);
-    font-size: 20px;
-    animation: float 6s linear infinite;
-}
-
-@keyframes float {
-    0% {
-        transform: translateY(100vh);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-10vh);
-        opacity: 0;
-    }
+    bottom: 15px;
+    width: 100%;
+    font-size: 12px;
+    color: #777;
 }
